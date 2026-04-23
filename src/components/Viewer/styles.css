@@ -1,0 +1,153 @@
+#viewer {
+    width: 50%;
+    padding: var(--viewer-padding);
+    overflow: auto;
+
+    background-color: var(--viewer-bg);
+    font-family: var(--viewer-font);
+    font-size: var(--viewer-font-size);
+    color: var(--viewer-font-color);
+
+}
+
+#preview > div {
+    height: 100%;
+}
+
+/* MAIN CONTAINER */
+.chordmd {
+  font-family: var(--font-primary);
+  line-height: 1.4;
+  box-sizing: border-box;
+
+  /* HEADER */
+  header {
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.8rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+    padding: 0;
+    margin: 0.25rem 0;
+    font-size: 0.875rem;
+    list-style: none;
+  }
+
+  .meta li {
+    display: flex;
+    background: #eee;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+  }
+
+  .meta-key {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .meta-key::after {
+    content: ":";
+    margin-right: 0.25rem;
+  }
+
+  .meta-value {
+    color: #555;
+  }
+
+  /* SECTIONS */
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #000;
+  }
+
+  /* LINES */
+  .line {
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+    white-space: pre-wrap;
+  }
+
+  .token {
+    display: inline-grid;
+    grid-template-rows: auto auto;
+    justify-items: left;
+    align-items: end;
+    min-width: 0.6ch;
+  }
+
+  .chord {
+    align-self: flex-start;
+    padding-right: 1ch;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .text:empty::after {
+    content: "\00a0";
+  }
+
+  .spacer {
+    height: 1.5rem;
+  }
+
+  /* COMMENTS */
+  .comment {
+    color: #888;
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  /* BLOCKQUOTE (highlight) */
+  blockquote {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    
+    padding-left: 0.75rem;
+    margin: 0.375rem 0;
+    border-left: 0.125rem solid var(--color-primary);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .chordmd {
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .meta {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,11 @@
+#editor {
+    padding: var(--editor-padding);
+    
+    font-family: var(--editor-font);
+    font-size: var(--editor-font-size);
+    color: var(--editor-font-color);
+    background-color: var(--editor-bg);
+    border: none;
+    resize: none;
+    outline: none;
+}

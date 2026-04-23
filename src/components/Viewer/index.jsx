@@ -1,4 +1,5 @@
-import { renderHTML } from '../renderer';
+import { renderHTML } from '../../renderer';
+import './styles.css';
 
 export default function Viewer({ content }) {
     const html = renderHTML(content);

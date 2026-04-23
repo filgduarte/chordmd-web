@@ -5,8 +5,11 @@
 }
 
 :root {
-  --color-primary: #3b82f6;
+  --color-primary: #1185FD;
   --color-secondary: #6b7280;
+  --font-primary: 'Segoe UI', sans-serif;
+
+  --navbar-height: 3rem;
 
   --editor-bg: #f9fafb;
   --editor-font: 'Courier New', monospace;
@@ -36,34 +39,17 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: var(--font-primary);
 }
 
 #root {
     display: grid;
-    grid-template-columns: var(--editor-width) var(--viewer-width);
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--navbar-height) 1fr;
     height: 100vh;
 }
 
-#editor {
-    background-color: var(--editor-bg);
-    font-family: var(--editor-font);
-    font-size: var(--editor-font-size);
-    color: var(--editor-font-color);
-    padding: var(--editor-padding);
-}
-
-#viewer {
-    width: 50%;
-    padding: var(--viewer-padding);
-    overflow: auto;
-
-    background-color: var(--viewer-bg);
-    font-family: var(--viewer-font);
-    font-size: var(--viewer-font-size);
-    color: var(--viewer-font-color);
-
-}
-
-#preview > div {
-    height: 100%;
+main {
+    display: grid;
+    grid-template-columns: var(--editor-width) var(--viewer-width);
 }
