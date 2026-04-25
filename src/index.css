@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -5,51 +7,79 @@
 }
 
 :root {
-  --color-primary: #1185FD;
-  --color-secondary: #6b7280;
-  --font-primary: 'Segoe UI', sans-serif;
+    /* Base colors */
+    --color-primary: #195EDC;
+    --color-secondary: #6b7280;
+    --color-background: #F1F1F1;
 
-  --navbar-height: 3rem;
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-monospace: 'DM Mono', monospace;
+    --font-size-base: 1rem;
+    --font-color: #111827;
 
-  --editor-bg: #f9fafb;
-  --editor-font: 'Courier New', monospace;
-  --editor-font-size: 1rem;
-  --editor-font-color: #111827;
-  --editor-width: 1fr;
-  --editor-padding: 1rem;
-  
-  --viewer-bg: #ffffff;
-  --viewer-font: 'Arial', sans-serif;
-  --viewer-font-size: 1rem;
-  --viewer-font-color: #111827;
-  --viewer-width: 1fr;
-  --viewer-padding: 1rem;
+    /* Panels */
+    --panels-border-radius: 0.5rem;
+    --panels-background: #ffffff;
+    --panels-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.05);
+    --panels-gap: 1rem;
+
+    /* Navbar */
+    --navbar-height: 3rem;
+    --navbar-background: var(--panels-background);
+    --navbar-border-radius: var(--panels-border-radius);
+    --navbar-shadow: var(--panels-shadow);
+
+    /* Editor */
+    --editor-background: var(--panels-background);
+    --editor-border-radius: var(--panels-border-radius);
+    --editor-shadow: var(--panels-shadow);
+    --editor-font: var(--font-monospace);
+    --editor-font-size: 0.875rem;
+    --editor-font-color: var(--font-color);
+    --editor-width: 1fr;
+    --editor-padding: 1rem;
+
+    /* Viewer */
+    --viewer-background: var(--panels-background);
+    --viewer-border-radius: var(--panels-border-radius);
+    --viewer-shadow: var(--panels-shadow); 
+    --viewer-font: var(--font-primary);
+    --viewer-font-size: var(--font-size-base);
+    --viewer-font-color: var(--font-color);
+    --viewer-width: 1fr;
+    --viewer-padding: 1rem;
 }
 
 [data-theme="dark"] {
-  --color-primary: #60a5fa;
-  --color-secondary: #c0c5ce;
+    --color-primary: #60a5fa;
+    --color-secondary: #c0c5ce;
 
-  --editor-bg: #020617;
-  --editor-font-color: #f9fafb;
-  --viewer-bg: #0f172a;
-  --viewer-font-color: #ffffff;
+    --editor-background: #020617;
+    --editor-font-color: #f9fafb;
+    --viewer-background: #0f172a;
+    --viewer-font-color: #ffffff;
 }
 
 html, body {
     margin: 0;
     padding: 0;
     font-family: var(--font-primary);
+    font-optical-sizing: auto;
+    background-color: var(--color-background);
 }
 
 #root {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: var(--navbar-height) 1fr;
+    gap: var(--panels-gap);
     height: 100vh;
+    padding: 1rem;
 }
 
 main {
     display: grid;
     grid-template-columns: var(--editor-width) var(--viewer-width);
+    gap: var(--panels-gap);
 }

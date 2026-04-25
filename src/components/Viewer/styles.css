@@ -1,9 +1,10 @@
 #viewer {
-    width: 50%;
     padding: var(--viewer-padding);
     overflow: auto;
 
-    background-color: var(--viewer-bg);
+    background-color: var(--viewer-background);
+    border-radius: var(--viewer-border-radius);
+    box-shadow: var(--viewer-shadow);
     font-family: var(--viewer-font);
     font-size: var(--viewer-font-size);
     color: var(--viewer-font-color);
