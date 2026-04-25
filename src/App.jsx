@@ -1,34 +1,24 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { parseChordMD } from './parser';
 import Navbar from './components/Navbar'
 import Editor from './components/Editor'
 import Viewer from './components/Viewer'
+import { renderHTML } from './renderer';
 
 function App() {
-  const [chordMD, setChordMD] = useState('')
-  const [ast, setAst] = useState(null)
+    const [chordMD, setChordMD] = useState('')
+    const ast = useMemo(() => parseChordMD(chordMD, { fileExtension: ".chordmd" }), [chordMD]);
+    const renderedHTML = useMemo(() => renderHTML(ast), [ast]);
 
-  const update = (value) => {
-    setChordMD(value);
-
-    const parsedAst = parseChordMD(value, {
-      fileExtension: ".chordmd"
-    });
-
-    if (parsedAst) {
-      setAst(parsedAst);
-    }
-  };
-
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Editor value={chordMD} onChange={update} />
-        <Viewer content={ast} />
-      </main>
-    </>
-  )
+    return (
+        <>
+            <Navbar songTitle={ast.title && ast.title} chordMD={chordMD} />
+            <main>
+                <Editor value={chordMD} onChange={value => setChordMD(value)} />
+                <Viewer content={renderedHTML} />
+            </main>
+        </>
+    )
 }
 
 export default App

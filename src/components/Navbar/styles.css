@@ -4,7 +4,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
 
     background-color: var(--navbar-background);
     border-radius: var(--navbar-border-radius);
@@ -15,4 +16,10 @@
     margin: 0;
     font-size: 1.25rem;
     color: var(--color-primary);
+}
+
+#navbar nav {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
 }

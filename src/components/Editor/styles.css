@@ -28,8 +28,8 @@
     font-family: var(--editor-font);
     font-size: var(--editor-font-size);
     background: transparent;
-    color: transparent; /* 👈 esconde texto real */
-    caret-color: #000;  /* cursor visível */
+    color: transparent; /* esconde texto real */
+    caret-color: var(--color-foreground);  /* cursor visível */
     z-index: 2;
     border: none;
     border: none;
@@ -41,10 +41,10 @@
   z-index: 1;
   pointer-events: none;
 
-  .title { color: #ba437a; }
-  .meta { color: #6b3ab4; }
-  .chord { color: var(--color-primary); }
-  .section { color: #5C9B34; }
-  .blockquote { color: #ff9e6c; }
-  .comment { color: #999; font-style: italic; }
+  .title { color: var(--color-syntax-title) }
+  .meta { color: var(--color-syntax-meta) }
+  .chord { color: var(--color-syntax-chord) }
+  .section { color: var(--color-syntax-section) }
+  .blockquote { color: var(--color-syntax-blockquote) }
+  .comment { color: var(--color-syntax-comment); font-style: italic; }
 }

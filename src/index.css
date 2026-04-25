@@ -9,14 +9,23 @@
 :root {
     /* Base colors */
     --color-primary: #195EDC;
-    --color-secondary: #6b7280;
     --color-background: #F1F1F1;
+    --color-foreground: #111827;
+
+    /* Syntax Highlight colors */
+    --color-syntax-title: #ba437a;
+    --color-syntax-meta: #7C3AED;
+    --color-syntax-section: #059669;
+    --color-syntax-text: var(--color-foreground);
+    --color-syntax-chord: var(--color-primary);
+    --color-syntax-blockquote: #D97706;
+    --color-syntax-comment: #6b7280;
 
     /* Typography */
     --font-primary: 'Inter', sans-serif;
     --font-monospace: 'DM Mono', monospace;
     --font-size-base: 1rem;
-    --font-color: #111827;
+    --font-color: var(--color-foreground);
 
     /* Panels */
     --panels-border-radius: 0.5rem;
@@ -29,6 +38,12 @@
     --navbar-background: var(--panels-background);
     --navbar-border-radius: var(--panels-border-radius);
     --navbar-shadow: var(--panels-shadow);
+    --button-background: var(--panels-background);
+    --button-border-radius: calc(var(--panels-border-radius) * 0.5);
+    --button-border-color: color-mix(in srgb, var(--color-syntax-comment) 25%, transparent);;
+    --button-border: 1px solid var(--button-border-color);
+    --button-font: var(--font-primary);
+    --button-font-size: 0.75rem;
 
     /* Editor */
     --editor-background: var(--panels-background);
@@ -38,17 +53,18 @@
     --editor-font-size: 0.875rem;
     --editor-font-color: var(--font-color);
     --editor-width: 1fr;
-    --editor-padding: 1rem;
+    --editor-padding: 1.5rem;
 
     /* Viewer */
     --viewer-background: var(--panels-background);
     --viewer-border-radius: var(--panels-border-radius);
-    --viewer-shadow: var(--panels-shadow); 
+    --viewer-shadow: var(--panels-shadow);
     --viewer-font: var(--font-primary);
     --viewer-font-size: var(--font-size-base);
-    --viewer-font-color: var(--font-color);
+    --viewer-base-color: var(--font-color);
+    --viewer-accent-color: var(--color-primary);
     --viewer-width: 1fr;
-    --viewer-padding: 1rem;
+    --viewer-padding: 1rem 1.5rem;
 }
 
 [data-theme="dark"] {
