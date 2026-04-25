@@ -12,7 +12,7 @@ function App() {
 
     return (
         <>
-            <Navbar songTitle={ast.title && ast.title} chordMD={chordMD} />
+            <Navbar songTitle={ast.title && ast.title} chordMD={[chordMD, setChordMD]} />
             <main>
                 <Editor value={chordMD} onChange={value => setChordMD(value)} />
                 <Viewer content={renderedHTML} />

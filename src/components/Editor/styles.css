@@ -37,6 +37,10 @@
     outline: none;
 }
 
+#editor textarea::placeholder {
+    opacity: .75;
+}
+
 #editor pre {
   z-index: 1;
   pointer-events: none;

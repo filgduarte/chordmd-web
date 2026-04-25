@@ -37,6 +37,16 @@ export default function Editor({ value, onChange }) {
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"
+                placeholder='Type your song here using ChordMD syntax. For example:
+
+# My Song Title
+## Artist Name
+
+### Verse 1
+[Am]This is a [G]song with [F]chords.
+
+### Chorus
+> [C]Chorus [G]goes [Am]here.'
             />
         </div>
     );

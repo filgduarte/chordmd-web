@@ -12,10 +12,21 @@
     box-shadow: var(--navbar-shadow);
 }
 
+#navbar #logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 #navbar h1 {
     margin: 0;
     font-size: 1.25rem;
     color: var(--color-primary);
+}
+
+#navbar #logo small {
+    font-size: 0.75rem;
+    color: var(--color-syntax-comment);
 }
 
 #navbar nav {
