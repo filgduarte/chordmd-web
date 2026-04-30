@@ -5,10 +5,10 @@ import './styles.css'
 
 export default function Navbar({songTitle, chordMD: [chordMD, setChordMD]}) {
     return(
-        <header id='navbar'>
+        <div id='navbar'>
             <div id='logo'>
                 <h1>ChordMD</h1>
-                <small>v0.1.0</small>
+                <small>v0.2.0</small>
             </div>
             <nav>
                 <Button
@@ -33,6 +33,6 @@ export default function Navbar({songTitle, chordMD: [chordMD, setChordMD]}) {
                     onClick={() => saveHTMLAsPDF("viewer", songTitle ?? null) }
                 />
             </nav>
-        </header>
+        </div>
     )
 }

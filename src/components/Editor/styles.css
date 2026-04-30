@@ -1,9 +1,61 @@
 #editor {
-    position: relative;
+    display: grid;
+    grid-template-rows: 1fr auto;
     height: 100%;
-    background-color: var(--editor-background);
-    border-radius: var(--editor-border-radius);
-    box-shadow: var(--editor-shadow);
+    max-height: 100%;
+    background-color: var(--editor-background, #181818);
+    border-radius: var(--editor-border-radius, 8px);
+    box-shadow: var(--editor-shadow, 0 2px 8px #0002);
+}
+
+#highlight {
+    counter-reset: line;
+    width: 100%;
+    height: calc(100% - 24px);
+    z-index: 1;
+    pointer-events: none;
+    background: transparent;
+    padding-left: calc(var(--editor-line-number-width) + 1em);
+}
+
+.editor-line {
+    display: flex;
+    align-items: flex-start;
+}
+
+.line-number {
+    width: var(--editor-line-number-width, 2em);
+    min-width: var(--editor-line-number-width, 2em);
+    text-align: right;
+    color: var(--color-editor-line-number);
+    user-select: none;
+    margin-right: 1em;
+    font-variant-numeric: tabular-nums;
+}
+
+.line-content {
+    flex: 1;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.current .line-content {
+    background: var(--color-editor-current-line);
+}
+
+.current .line-number {
+    font-weight: 500;
+    color: var(--color-editor-current-line-number);
+}
+
+#code-area {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    position: relative;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
 }
 
 #editor textarea,
@@ -14,41 +66,77 @@
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: var(--editor-padding);
-
-    font-family: var(--editor-font);
-    font-size: var(--editor-font-size);
+    padding: var(--editor-padding, 1em);
+    padding-left: 0;
+    font-family: var(--editor-font, 'Fira Mono', monospace);
+    font-size: var(--editor-font-size, 1em);
     white-space: pre-wrap;
     word-wrap: break-word;
+    box-sizing: border-box;
+    overflow: auto;
 }
 
-#editor textarea{
-    padding: var(--editor-padding);
-    
-    font-family: var(--editor-font);
-    font-size: var(--editor-font-size);
-    background: transparent;
+#editor textarea {
+    padding-left: calc(var(--editor-line-number-width) + 1em);
+    width: 100%;
     color: transparent; /* esconde texto real */
-    caret-color: var(--color-foreground);  /* cursor visível */
-    z-index: 2;
-    border: none;
+    caret-color: var(--color-foreground, #fff);  /* cursor visível */
+    background: transparent;
     border: none;
     resize: none;
     outline: none;
+    z-index: 2;
 }
 
 #editor textarea::placeholder {
     opacity: .75;
 }
 
-#editor pre {
-  z-index: 1;
-  pointer-events: none;
+#editor pre .title { color: var(--color-syntax-title, #e2b714); }
+#editor pre .meta { color: var(--color-syntax-meta, #ff8c00); }
+#editor pre .chord { color: var(--color-syntax-chord, #4ec9b0); }
+#editor pre .section { color: var(--color-syntax-section, #569cd6); }
+#editor pre .blockquote { color: var(--color-syntax-blockquote, #b5cea8); }
+#editor pre .comment { color: var(--color-syntax-comment, #6a9955); font-style: italic; }
 
-  .title { color: var(--color-syntax-title) }
-  .meta { color: var(--color-syntax-meta) }
-  .chord { color: var(--color-syntax-chord) }
-  .section { color: var(--color-syntax-section) }
-  .blockquote { color: var(--color-syntax-blockquote) }
-  .comment { color: var(--color-syntax-comment); font-style: italic; }
+/* Destaque de erro de sintaxe */
+.editor-line.error .line-content {
+    background: rgba(244, 67, 54, 0.15);
+}
+
+.editor-line.error .line-number {
+    font-weight: 500;
+    color: var(--color-editor-error, #f44336);
+}
+
+/* Barra de status */
+#status-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0 1em;
+    height: 24px;
+    font-family: var(--font-primary);
+    font-size: var(--editor-statusbar-font-size, 0.75rem);
+    color: var(--color-editor-statusbar-text);
+    border-top: 1px solid var(--color-editor-statusbar-border);
+    user-select: none;
+    z-index: 10;
+}
+
+.status-info {
+    font-weight: 600;
+}
+
+.status-separator {
+    opacity: 0.5;
+}
+
+.status-stats {
+    color: var(--color-editor-statusbar-text);
+}
+
+.status-error {
+    font-weight: 500;
+    color: var(--editor-status-error, #f44336);
 }

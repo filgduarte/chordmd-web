@@ -12,8 +12,10 @@ function App() {
 
     return (
         <>
-            <Navbar songTitle={ast.title && ast.title} chordMD={[chordMD, setChordMD]} />
-            <main>
+            <header id='app-header'>
+               <Navbar songTitle={ast.title && ast.title} chordMD={[chordMD, setChordMD]} />
+            </header>
+            <main id='app-main'>
                 <Editor value={chordMD} onChange={value => setChordMD(value)} />
                 <Viewer content={renderedHTML} />
             </main>
